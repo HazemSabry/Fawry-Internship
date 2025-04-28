@@ -39,54 +39,54 @@ Show how to persist DNS server settings using systemd-resolved or NetworkManager
     - Using "*curl*":
         port 80:
 
-```shell
-curl <http://192.168.1.50>
-```
+    ```shell
+    curl <http://192.168.1.50>
+    ```
 
-        port 443:
+    port 443:
 
-```shell
-curl <https://192.168.1.50>
-```
+    ```shell
+    curl <https://192.168.1.50>
+    ```
 
     - Using "*telnet*":
         port 80:
 
-```shell
-telnet 192.168.1.50 80
-```
+    ```shell
+    telnet 192.168.1.50 80
+    ```
 
-        port 443:
+    port 443:
 
-```shell
-telnet 192.168.1.50 80
-```
+    ```shell
+    telnet 192.168.1.50 80
+    ```
 
     - Using "*netstat*":
         port 80:
 
-```shell
-netstat -tuln | grep ':80'
-```
+    ```shell
+    netstat -tuln | grep ':80'
+    ```
 
-        port 443:
+    port 443:
 
-```shell
-netstat -tuln | grep ':443'
-```
+    ```shell
+    netstat -tuln | grep ':443'
+    ```
 
     - Using "*ss*":
         port 80
 
-```shell
-ss -tuln | grep ':80'
-```
+        ```shell
+        ss -tuln | grep ':80'
+        ```
 
         port 443:
 
-```shell
-ss -tuln | grep ':80'
-```
+        ```shell
+        ss -tuln | grep ':80'
+        ```
 
 3. Possible Causes
     - Wrong DNS server configured
@@ -103,7 +103,7 @@ ss -tuln | grep ':80'
 sudo systemctl restart systemd-resolved
 ```
 
-    - "Open firewall ports", if ports 53 (DNS), 80 (HTTP), and 443 (HTTPS) are not open.
+- "Open firewall ports", if ports 53 (DNS), 80 (HTTP), and 443 (HTTPS) are not open.
         allow DNS, HTTP, and HTTPS ports:
 
 ```shell
@@ -117,7 +117,7 @@ sudo ufw allow 443
 sudo ufw reload
 ```
 
-    - "Restart web service (nginx/apache2)", if Service Not Running.
+- "Restart web service (nginx/apache2)", if Service Not Running.
         restart nginx or apache2 service:
 
 ```shell
@@ -162,21 +162,21 @@ Persist DNS using systemd-resolved or NetworkManager.
 
 3. **Restart the `systemd-resolved` service:**
 
-```shell
-sudo systemctl restart systemd-resolved
-```
+    ```shell
+    sudo systemctl restart systemd-resolved
+    ```
 
 4. **Enable `systemd-resolved` to start automatically on boot:**
 
-```shell
-sudo systemctl enable systemd-resolved
-```
+    ```shell
+    sudo systemctl enable systemd-resolved
+    ```
 
 5. **Verify that your DNS settings have been applied:**
 
-```shell
-systemd-resolve --status
-```
+    ```shell
+    systemd-resolve --status
+    ```
 
 **Ensure `/etc/resolv.conf` is linked to `systemd-resolved`:**
 
@@ -194,38 +194,38 @@ This ensures that `resolv.conf` points to the systemd-resolved configuration.
     NetworkManager allows you to configure DNS for individual network connections. You'll need to modify the `.nmconnection` file for the connection you want.
     To list your active connections:
 
-```shell
-nmcli connection show
-```
+    ```shell
+    nmcli connection show
+    ```
 
    Identify the connection you want to modify (for example, `Wired connection 1`).
 
 2. **Modify the connection's DNS settings:**
     You can use `nmcli` to modify the DNS settings for the connection. Here's how to set the DNS servers to Google's DNS (8.8.8.8 and 8.8.4.4):
 
-```shell
-sudo nmcli connection modify "Wired connection 1" ipv4.dns "8.8.8.8 8.8.4.4"
-```
+    ```shell
+    sudo nmcli connection modify "Wired connection 1" ipv4.dns "8.8.8.8 8.8.4.4"
+    ```
 
    You can also set DNS servers for IPv6 by modifying the `ipv6.dns` property in the same way.
 
-```shell
-sudo nmcli connection modify "Wired connection 1" ipv6.dns "2001:4860:4860::8888 2001:4860:4860::8844"
-```
+    ```shell
+    sudo nmcli connection modify "Wired connection 1" ipv6.dns "2001:4860:4860::8888 2001:4860:4860::8844"
+    ```
 
 3. **Restart NetworkManager to apply the changes:**
 
-```shell
-sudo systemctl restart NetworkManager
-```
+    ```shell
+    sudo systemctl restart NetworkManager
+    ```
 
 4. **Verify that DNS settings are applied:**
 
    You can check the DNS settings by running:
 
-```shell
-nmcli device show
-```
+    ```shell
+    nmcli device show
+    ```
 
    Look for the `IP4.DNS` and `IP6.DNS` entries under the relevant network interface.
 
