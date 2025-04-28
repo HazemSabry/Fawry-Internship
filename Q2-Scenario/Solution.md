@@ -39,7 +39,7 @@ Show how to persist DNS server settings using systemd-resolved or NetworkManager
     - Using "*curl*":
         port 80:
 
-    ```shell
+    ```bash
     curl <http://192.168.1.50>
     ```
 
