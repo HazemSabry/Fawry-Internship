@@ -83,35 +83,35 @@ Show how to persist DNS server settings using systemd-resolved or NetworkManager
         update "/etc/resolv.conf" file to use working DNS (eg. 8.8.8.8, 8.8.4.4).
         restart systemd-resolved:
 
-```shell
-sudo systemctl restart systemd-resolved
-```
+        ```shell
+        sudo systemctl restart systemd-resolved
+        ```
 
-- "Open firewall ports", if ports 53 (DNS), 80 (HTTP), and 443 (HTTPS) are not open.
-        allow DNS, HTTP, and HTTPS ports:
+    - "Open firewall ports", if ports 53 (DNS), 80 (HTTP), and 443 (HTTPS) are not open.
+            allow DNS, HTTP, and HTTPS ports:
 
-    ```shell
-    # For DNS
-    sudo ufw allow 53
-    # For HTTP
-    sudo ufw allow 80
-    # For HTTPS
-    sudo ufw allow 443
-    # Reload firewall rules
-    sudo ufw reload
-    ```
+        ```shell
+        # For DNS
+        sudo ufw allow 53
+        # For HTTP
+        sudo ufw allow 80
+        # For HTTPS
+        sudo ufw allow 443
+        # Reload firewall rules
+        sudo ufw reload
+        ```
 
-- "Restart web service (nginx/apache2)", if Service Not Running.
-        restart nginx or apache2 service:
+    - "Restart web service (nginx/apache2)", if Service Not Running.
+            restart nginx or apache2 service:
 
-    ```shell
-    # For Apache
-    sudo systemctl start apache2
-    sudo systemctl enable apache2
-    # For Nginx
-    sudo systemctl start nginx
-    sudo systemctl enable nginx
-    ```
+        ```shell
+        # For Apache
+        sudo systemctl start apache2
+        sudo systemctl enable apache2
+        # For Nginx
+        sudo systemctl start nginx
+        sudo systemctl enable nginx
+        ```
 
 ### Bonus
 
