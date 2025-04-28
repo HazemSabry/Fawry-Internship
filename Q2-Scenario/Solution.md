@@ -39,41 +39,41 @@ Show how to persist DNS server settings using systemd-resolved or NetworkManager
     - Using "*curl*":
         port 80:
 
-    ```shell
-    curl <http://192.168.1.50>
-    ```
+        ```shell
+        curl <http://192.168.1.50>
+        ```
 
-    port 443:
+        port 443:
 
-    ```shell
-    curl <https://192.168.1.50>
-    ```
+        ```shell
+        curl <https://192.168.1.50>
+        ```
 
     - Using "*telnet*":
         port 80:
 
-    ```shell
-    telnet 192.168.1.50 80
-    ```
+        ```shell
+        telnet 192.168.1.50 80
+        ```
 
-    port 443:
+        port 443:
 
-    ```shell
-    telnet 192.168.1.50 80
-    ```
+        ```shell
+        telnet 192.168.1.50 80
+        ```
 
     - Using "*netstat*":
         port 80:
 
-    ```shell
-    netstat -tuln | grep ':80'
-    ```
+        ```shell
+        netstat -tuln | grep ':80'
+        ```
 
-    port 443:
+        port 443:
 
-    ```shell
-    netstat -tuln | grep ':443'
-    ```
+        ```shell
+        netstat -tuln | grep ':443'
+        ```
 
     - Using "*ss*":
         port 80
