@@ -66,7 +66,9 @@ You are tasked with creating a custom version of the `grep` command called `mygr
    - `./mygrep.sh -n hello testfile.txt`
    - `./mygrep.sh -vn hello testfile.txt`
    - `./mygrep.sh -v testfile.txt` (expect a warning about the missing search string).
-   ### **Screenshot Result**:
+
+    #### **Screenshot Result**
+
         - ![TestCase1](Screenshots/TestCase1.png)
         - ![TestCase2](Screenshots/TestCase2.png)
         - ![TestCase3](Screenshots/TestCase3.png)
