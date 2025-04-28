@@ -29,14 +29,14 @@ Show how to persist DNS server settings using systemd-resolved or NetworkManager
 
 ### Steps
 
-1. DNS Verification
+1. **DNS Verification**
     cat /etc/resolv.conf output:
     ![Screenshot](Screenshot/DNS-Verification.png)
     dig internal.example.com output:
     dig @8.8.8.8 internal.example.com output:
     ![Screenshot](Screenshot/Compare-resolution-Diagnose.png)
 
-2. Service Reachability
+2. **Service Reachability**
     Assume IP = 192.168.1.50
     - Using "*curl*":
 
@@ -74,13 +74,13 @@ Show how to persist DNS server settings using systemd-resolved or NetworkManager
         ss -tuln | grep ':80'
         ```
 
-3. Possible Causes
+3. **Possible Causes**
     - Wrong DNS server configured
     - Firewall blocking DNS or HTTP
     - Service not running (Apache, Nginx)
     - Wrong internal routing
 
-4. Propose and Apply Fixes
+4. **Propose and Apply Fixes**
     - "Correct /etc/resolv.conf", if dig works with 8.8.8.8 but not with your system DNS:
         update "/etc/resolv.conf" file to use working DNS (eg. 8.8.8.8, 8.8.4.4).
         restart systemd-resolved:
