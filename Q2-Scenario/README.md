@@ -23,6 +23,8 @@ Please include screenshots that demonstrate how you identified and resolved the 
 Configure a local /etc/hosts entry to bypass DNS for testing.
 Show how to persist DNS server settings using systemd-resolved or NetworkManager.
 
+---
+
 ## Solution
 
 ### Steps
@@ -113,7 +115,9 @@ Show how to persist DNS server settings using systemd-resolved or NetworkManager
         sudo systemctl enable nginx
         ```
 
-### Bonus
+---
+
+## Bonus
 
 - Configure a local /etc/hosts entry to bypass DNS for testing.
     Edit /etc/hosts to add:
@@ -125,7 +129,7 @@ Show how to persist DNS server settings using systemd-resolved or NetworkManager
 - Show how to persist DNS server settings using systemd-resolved or NetworkManager.
 Persist DNS using systemd-resolved or NetworkManager.
 
-#### 1. **Persist DNS Settings Using `systemd-resolved`**
+### 1. **Persist DNS Settings Using `systemd-resolved`**
 
 1. **Edit the systemd-resolved configuration file:**
 
@@ -170,7 +174,7 @@ sudo ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 
 This ensures that `resolv.conf` points to the systemd-resolved configuration.
 
----
+ ---
 
 ### 2. **Persist DNS Settings Using `NetworkManager`**
 
@@ -212,5 +216,3 @@ This ensures that `resolv.conf` points to the systemd-resolved configuration.
     ```
 
    Look for the `IP4.DNS` and `IP6.DNS` entries under the relevant network interface.
-
----
