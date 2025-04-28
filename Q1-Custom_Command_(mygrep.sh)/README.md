@@ -67,10 +67,10 @@ You are tasked with creating a custom version of the `grep` command called `mygr
    - `./mygrep.sh -vn hello testfile.txt`
    - `./mygrep.sh -v testfile.txt` (expect a warning about the missing search string).
    **Screenshot Result**:
-        - [TestCase1](./Screenshots/TestCase1.png)
-        - [TestCase2](./Screenshots/TestCase2.png)
-        - [TestCase3](./Screenshots/TestCase3.png)
-        - [TestCase4](./Screenshots/TestCase4.png)
+        - ![TestCase1](Screenshots/TestCase1.png)
+        - ![TestCase2](Screenshots/TestCase2.png)
+        - ![TestCase3](Screenshots/TestCase3.png)
+        - ![TestCase4](Screenshots/TestCase4.png)
 
 ### Bonus Section:
 1. **Support for `--help` Flag**:
