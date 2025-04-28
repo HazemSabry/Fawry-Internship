@@ -37,54 +37,38 @@ Show how to persist DNS server settings using systemd-resolved or NetworkManager
 2. Service Reachability
     Assume IP = 192.168.1.50
     - Using "*curl*":
-        port 80:
 
         ```shell
+        # port 80
         curl <http://192.168.1.50>
-        ```
-
-        port 443:
-
-        ```shell
+        # port 443
         curl <https://192.168.1.50>
         ```
 
     - Using "*telnet*":
-        port 80:
 
         ```shell
+        # port 80
         telnet 192.168.1.50 80
-        ```
-
-        port 443:
-
-        ```shell
+        # port 443
         telnet 192.168.1.50 80
         ```
 
     - Using "*netstat*":
-        port 80:
 
         ```shell
+        # port 80
         netstat -tuln | grep ':80'
-        ```
-
-        port 443:
-
-        ```shell
+        # port 443
         netstat -tuln | grep ':443'
         ```
 
     - Using "*ss*":
-        port 80
 
         ```shell
+        # port 80
         ss -tuln | grep ':80'
-        ```
-
-        port 443:
-
-        ```shell
+        #port 443
         ss -tuln | grep ':80'
         ```
 
@@ -106,37 +90,37 @@ sudo systemctl restart systemd-resolved
 - "Open firewall ports", if ports 53 (DNS), 80 (HTTP), and 443 (HTTPS) are not open.
         allow DNS, HTTP, and HTTPS ports:
 
-```shell
-# For DNS
-sudo ufw allow 53
-# For HTTP
-sudo ufw allow 80
-# For HTTPS
-sudo ufw allow 443
-# Reload firewall rules
-sudo ufw reload
-```
+    ```shell
+    # For DNS
+    sudo ufw allow 53
+    # For HTTP
+    sudo ufw allow 80
+    # For HTTPS
+    sudo ufw allow 443
+    # Reload firewall rules
+    sudo ufw reload
+    ```
 
 - "Restart web service (nginx/apache2)", if Service Not Running.
         restart nginx or apache2 service:
 
-```shell
-# For Apache
-sudo systemctl start apache2
-sudo systemctl enable apache2
-# For Nginx
-sudo systemctl start nginx
-sudo systemctl enable nginx
-```
+    ```shell
+    # For Apache
+    sudo systemctl start apache2
+    sudo systemctl enable apache2
+    # For Nginx
+    sudo systemctl start nginx
+    sudo systemctl enable nginx
+    ```
 
 ### Bonus
 
 - Configure a local /etc/hosts entry to bypass DNS for testing.
     Edit /etc/hosts to add:
 
-```ini
-192.168.1.50 internal.example.com
-```
+    ```ini
+    192.168.1.50 internal.example.com
+    ```
 
 - Show how to persist DNS server settings using systemd-resolved or NetworkManager.
 Persist DNS using systemd-resolved or NetworkManager.
