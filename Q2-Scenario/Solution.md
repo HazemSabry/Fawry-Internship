@@ -223,8 +223,8 @@ Persist DNS using systemd-resolved or NetworkManager.
 
    You can check the DNS settings by running:
 
-        ```shell
-        nmcli device show
-        ```
+```shell
+nmcli device show
+```
 
    Look for the `IP4.DNS` and `IP6.DNS` entries under the relevant network interface.
