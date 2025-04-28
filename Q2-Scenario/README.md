@@ -53,7 +53,7 @@ Show how to persist DNS server settings using systemd-resolved or NetworkManager
         # port 80
         telnet 192.168.1.50 80
         # port 443
-        telnet 192.168.1.50 80
+        telnet 192.168.1.50 443
         ```
 
     - Using "*netstat*":
@@ -71,7 +71,7 @@ Show how to persist DNS server settings using systemd-resolved or NetworkManager
         # port 80
         ss -tuln | grep ':80'
         #port 443
-        ss -tuln | grep ':80'
+        ss -tuln | grep ':443'
         ```
 
 3. **Possible Causes**
